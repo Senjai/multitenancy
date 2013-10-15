@@ -4,6 +4,7 @@ module Subscribem
   class AccountsController < ApplicationController
     def new
       @account = Subscribem::Account.new
+      @owner = @account.build_owner
     end
 
     def create
