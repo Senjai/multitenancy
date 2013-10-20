@@ -88,4 +88,30 @@ feature "user sign in" do
       page.current_url.should == root_url
     end
   end
+
+  scenario "attempts sign in with invalid password and fails miserably" do
+    visit subscribem.root_url(subdomain: account.subdomain)
+    page.current_url.should == sign_in_url
+    page.should have_content("Please sign in.")
+
+    fill_in "Email", with: account.owner.email
+    fill_in "Password", with: "ladidahhhhh"
+    click_button "Sign In"
+
+    page.should have_content("Invalid email or password.")
+    page.current_url.should == sign_in_url
+  end
+
+  scenario "attempts sign in with invalid email and fails miserably" do
+    visit subscribem.root_url(subdomain: account.subdomain)
+    page.current_url.should == sign_in_url
+    page.should have_content("Please sign in.")
+
+    fill_in "Email", with: "foo@example.com"
+    fill_in "Password", with: "password"
+    click_button "Sign In"
+
+    page.should have_content("Invalid email or password.")
+    page.current_url.should == sign_in_url
+  end
 end
