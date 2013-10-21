@@ -101,3 +101,18 @@ Perhaps this was intended to be removed and added like further instruction sugge
 The first error does not occur and thus the next paragraph describing it doesn't make sense
 
 ***
+
+## Schema Logic Suggestion
+
+Currently, (so far) the logic for creating a schema is in the controller. I agreed with create_with_user as there are situations in whcih you would want to create and account without a user and it shouldn't be placed in a callback. That said, is there ever a time you'd create an account without an associated schema?
+
+Would it be best to put that in an after_create callback on the model, or even better in a ActiveRecord::Concern?
+
+***
+
+## Page 86
+
+First paragraphs text is cut off.
+
+***
+
