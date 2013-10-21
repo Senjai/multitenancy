@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     subscribem (0.0.1)
+      apartment (= 0.22.0)
       bcrypt-ruby (= 3.0.1)
       dynamic_form (= 1.1.4)
       rails (~> 4.0.0)
@@ -34,6 +35,9 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    apartment (0.22.0)
+      activerecord (>= 3.1.2)
+      rack (>= 1.3.6)
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.0.1)
