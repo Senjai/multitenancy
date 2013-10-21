@@ -32,7 +32,7 @@ feature 'Accounts' do
     fill_in "Password confirmation", with: "password"
 
     click_button "Create Account"
-    page.current_url.should == "http://example.com/accounts"
+    page.current_url.should == "http://www.example.com/accounts"
     page.should have_content("Sorry, your account could not be created.")
     page.should have_content("Subdomain has already been taken")
   end
@@ -48,7 +48,7 @@ feature 'Accounts' do
     fill_in "Password confirmation", with: "password"
 
     click_button "Create Account"
-    page.current_url.should == "http://example.com/accounts"
+    page.current_url.should == "http://www.example.com/accounts"
     page.should have_content("Sorry, your account could not be created.")
     page.should have_content("Subdomain is not allowed. Please choose another subdomain.")
   end
@@ -64,7 +64,7 @@ feature 'Accounts' do
     fill_in "Password confirmation", with: "password"
 
     click_button "Create Account"
-    page.current_url.should == "http://example.com/accounts"
+    page.current_url.should == "http://www.example.com/accounts"
     page.should have_content("Sorry, your account could not be created.")
     page.should have_content("Subdomain is not allowed. Please choose another subdomain.")
   end
@@ -73,7 +73,7 @@ end
 feature "user sign in" do
   extend SubdomainHelpers
 
-  let!(:account) { FactoryGirl.create(:account_with_schema) }
+  let!(:account) { FactoryGirl.create(:account) }
   let(:sign_in_url) { "http://#{account.subdomain}.example.com/sign_in" }
   let(:root_url) { "http://#{account.subdomain}.example.com/" }
 
@@ -132,11 +132,10 @@ feature "user sign in" do
 end
 
 feature "User sign up" do
-  let!(:account) {FactoryGirl.create(:account_with_schema)}
+  let!(:account) {FactoryGirl.create(:account)}
   let(:root_url) {"http://#{account.subdomain}.example.com/"}
 
   scenario "under an account" do
-    binding.pry
     visit root_url
     page.current_url.should == root_url + "sign_in"
     click_link "New User?"
