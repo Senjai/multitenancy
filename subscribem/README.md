@@ -59,3 +59,11 @@ nor having the alias for the route defined to get rid of the no method defined e
 This happens again on page 52 when the error is not as noted. The error is actually an undefined method error for account, because it isn't defined until later on page 52
 
 ***
+
+## Private methods in controllers
+
+I'm not sure if I'm entirely correct on this, I remember reading somewhere that controller logic, like the logic in
+the application controller should be private as to never be misunderstood as an action. Again, not sure how
+accurate that statement is, either way it doesn't seem like they should be part of the public interface.
+
+***
