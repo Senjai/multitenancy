@@ -88,3 +88,10 @@ rake db:migrate and RAILS_ENV=test rake db:migrate so these tables do exist in t
 on page 75
 
 ***
+
+## Page 81
+
+The routing error described doesn't occue because previous instruction already included the use_route parameter.
+Perhaps this was intended to be removed and added like further instruction suggests after the error is encountered.
+
+***
