@@ -67,3 +67,9 @@ the application controller should be private as to never be misunderstood as an 
 accurate that statement is, either way it doesn't seem like they should be part of the public interface.
 
 ***
+
+## Page 66
+
+Appendix A as referenced for tips pertinent to installing and using postgres doesn't exist.
+
+***
