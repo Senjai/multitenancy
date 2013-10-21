@@ -32,3 +32,9 @@ end
 ```
 
 ***
+
+## Page 50
+
+First paragraphs text is cut off in the pdf. Also happens in the 5th paragraph on page 49
+
+***
