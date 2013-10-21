@@ -20,6 +20,9 @@ Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
+  config.after(:each) do
+    Apartment::Database.reset
+  end
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

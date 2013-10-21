@@ -114,5 +114,13 @@ Would it be best to put that in an after_create callback on the model, or even b
 
 First paragraphs text is cut off.
 
+let!(:account_a) { FactoryGirl.create(:account_with_schema) }
+ActiveRecord::StatementInvalid:
+PG::Error: ERROR: current transaction is aborted,
+commands ignored until end of transaction block
+: SET search_path TO public
+
+This error doesn't occur for me.
+
 ***
 

@@ -16,6 +16,10 @@ module Subscribem
       end
     end
 
+    initializer "subscribem.middleware.apartment" do
+      Rails.application.config.middleware.use Apartment::Elevators::Subdomain
+    end
+
     config.to_prepare do
       root = Subscribem::Engine.root
       extenders_path = root + "app/extenders/**/*.rb"
