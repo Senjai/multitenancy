@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20131021033453) do
     t.string   "subdomain"
   end
 
-  add_index "subscribem_accounts", ["subdomain"], name: "index_subscribem_accounts_on_subdomain"
+  add_index "subscribem_accounts", ["subdomain"], name: "index_subscribem_accounts_on_subdomain", using: :btree
 
   create_table "subscribem_members", force: true do |t|
     t.integer  "account_id"
