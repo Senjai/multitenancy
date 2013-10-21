@@ -80,3 +80,11 @@ If this is the case, it should be added as a dependency in the gemspec instead o
 it should be made clear that the user must use postgres in some fashion
 
 ***
+
+## Page 77
+
+The activerecord::statementinvalid error does not occur. This is because after installing psql, we did both
+rake db:migrate and RAILS_ENV=test rake db:migrate so these tables do exist in the public schema. This call was made
+on page 75
+
+***
