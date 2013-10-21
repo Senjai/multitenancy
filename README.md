@@ -132,3 +132,9 @@ This error doesn't occur for me.
 
 ***
 
+## Page 91
+
+Note that after refactoring current_account, calling it when the subomdain is nonexistant or www will raise an exception. I think.. Maybe not because it doesnt have a bang at the end of it. Either way it's the first thing that comes to mind
+
+***
+
