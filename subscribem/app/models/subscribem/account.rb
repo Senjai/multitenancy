@@ -35,5 +35,11 @@ module Subscribem
       end
       account
     end
+
+    #Instance Methods
+
+    def create_schema
+      Apartment::Database.create(subdomain)
+    end
   end
 end
