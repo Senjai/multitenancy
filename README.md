@@ -74,6 +74,14 @@ Appendix A as referenced for tips pertinent to installing and using postgres doe
 
 ***
 
+## Page 75
+
+The version of apartment used as the dependency must be set to 0.22.1 not 0.22.0. This ensures proper reporting of error messages when you get to Page 89 when you attempt to fix the tests that are broken.
+
+The error messages on 0.22.0 are weird and are arguement error messages instead of schema not available.
+
+***
+
 ## Scoping only works in PostgreSQL
 
 If this is the case, it should be added as a dependency in the gemspec instead of a development_dependency as
