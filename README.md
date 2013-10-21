@@ -95,3 +95,9 @@ The routing error described doesn't occue because previous instruction already i
 Perhaps this was intended to be removed and added like further instruction suggests after the error is encountered.
 
 ***
+
+## Page 82
+
+The first error does not occur and thus the next paragraph describing it doesn't make sense
+
+***
