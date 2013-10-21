@@ -136,7 +136,6 @@ feature "User sign up" do
   let(:root_url) {"http://#{account.subdomain}.example.com/"}
 
   scenario "under an account" do
-    binding.pry
     visit root_url
     page.current_url.should == root_url + "sign_in"
     click_link "New User?"
