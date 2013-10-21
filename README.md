@@ -73,3 +73,10 @@ accurate that statement is, either way it doesn't seem like they should be part 
 Appendix A as referenced for tips pertinent to installing and using postgres doesn't exist.
 
 ***
+
+## Scoping only works in PostgreSQL
+
+If this is the case, it should be added as a dependency in the gemspec instead of a development_dependency as
+it should be made clear that the user must use postgres in some fashion
+
+***
