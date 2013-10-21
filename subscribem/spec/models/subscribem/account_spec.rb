@@ -1,7 +1,20 @@
 require 'spec_helper'
 
-module Subscribem
-  describe Account do
-    pending "add some examples to (or delete) #{__FILE__}"
+describe Subscribem::Account do
+  it "can be created with an owner" do
+    params = {
+      name: "Test Account",
+      subdomain: "test",
+      owner_attributes: {
+        email: "user@example.com",
+        password: "password",
+        password_confirmation: "password"
+      }
+    }
+
+    account = Subscribem::Account.create_with_owner(params)
+
+    account.should be_persisted
+    account.users.first.should == account.owner
   end
 end

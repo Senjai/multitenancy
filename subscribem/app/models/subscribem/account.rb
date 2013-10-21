@@ -5,6 +5,9 @@ module Subscribem
     end
     EXCLUDED_SUBDOMAINS = %w(admin)
 
+    has_many :members, class_name: "Subscribem::Member"
+    has_many :users, through: :members
+
     belongs_to :owner, :class_name => "Subscribem::User"
     accepts_nested_attributes_for :owner
 
