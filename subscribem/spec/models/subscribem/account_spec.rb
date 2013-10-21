@@ -17,4 +17,10 @@ describe Subscribem::Account do
     account.should be_persisted
     account.users.first.should == account.owner
   end
+
+  it "cannot create an account without a subdomain" do
+    account = Subscribem::Account.create_with_owner
+    account.should_not be_valid
+    account.users.should be_empty
+  end
 end
