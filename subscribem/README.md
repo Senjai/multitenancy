@@ -56,4 +56,6 @@ After running the test, it doesn't come up with a routing error as dictated, ins
 a method not defined. I would suggest restating the error is a result of both not having the route defined
 nor having the alias for the route defined to get rid of the no method defined error.
 
+This happens again on page 52 when the error is not as noted. The error is actually an undefined method error for account, because it isn't defined until later on page 52
+
 ***
