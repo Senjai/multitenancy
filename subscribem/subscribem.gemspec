@@ -27,4 +27,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "factory_girl", '4.1.0'
   s.add_development_dependency 'pry-rails'
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'database_cleaner', '1.0.1'
 end

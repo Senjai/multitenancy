@@ -49,6 +49,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.0.9)
+    database_cleaner (1.0.1)
     diff-lcs (1.2.4)
     dynamic_form (1.1.4)
     erubis (2.7.0)
@@ -134,6 +135,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (= 2.1.0)
+  database_cleaner (= 1.0.1)
   factory_girl (= 4.1.0)
   pg
   pry-rails
