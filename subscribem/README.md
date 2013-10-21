@@ -38,3 +38,22 @@ end
 First paragraphs text is cut off in the pdf. Also happens in the 5th paragraph on page 49
 
 ***
+
+## Page 51
+
+In the code:
+
+```ruby
+<h2>Sign Up</h2>
+<%= form_for(@user, url: do_user_sign_up_url) do |user| %>
+  <%= render 'subscribem/account/users/form', user: user %>
+  <%= user.submit "Sign up" %>
+<% end %>
+```
+
+it isn't obvious what do_user_sign_up_url does. At this point it is undefined and gives the reader pause.
+After running the test, it doesn't come up with a routing error as dictated, instead it comes up with
+a method not defined. I would suggest restating the error is a result of both not having the route defined
+nor having the alias for the route defined to get rid of the no method defined error.
+
+***
