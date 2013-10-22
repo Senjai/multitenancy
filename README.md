@@ -143,3 +143,9 @@ Note that after refactoring current_account, calling it when the subomdain is no
 For those that might test the app in development, a quick mention to http://matthewhutchinson.net/2011/1/10/configuring-subdomains-in-development-with-lvhme may be relevant. Either in a footnote or the like. Simply going to lvh.me:port will redirect you to localhost, but you wont have to modify your /etc/hosts file everytime you add a new subdomain because DNS allows wildcards, host files do not.
 
 ***
+
+## Page 99
+
+Do you have to include require capybara/rspec in test helper to make capybara work? What about adding rspec to the generators?
+
+***
