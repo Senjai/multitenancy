@@ -45,3 +45,5 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+Capybara.app_host = "http://example.com"
