@@ -1,3 +1,29 @@
+GIT
+  remote: git://github.com/FriendlyId/friendly_id.git
+  revision: 2764077e3af32a88114d68c75e20ef738e4fa829
+  specs:
+    friendly_id (5.0.0)
+      activerecord (~> 4.0.0)
+
+GIT
+  remote: git://github.com/radar/forem.git
+  revision: f34fb3d655833e28d241fbc6a761e49564d35a24
+  branch: rails4
+  specs:
+    forem (1.0.0.beta1)
+      decorators (~> 1.0.2)
+      gemoji (= 1.1.2)
+      rails (~> 4.0.0)
+      select2-rails (= 3.4.3)
+      simple_form (~> 3.0.0.rc)
+      workflow (= 0.8.0)
+
+GIT
+  remote: https://github.com/nukturnal/cancan.git
+  revision: a606378912e75d6b62f8257ffa5b4c5f2023760b
+  specs:
+    cancan (1.6.10)
+
 PATH
   remote: ../subscribem
   specs:
@@ -49,9 +75,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    decorators (1.0.3)
+      railties (>= 3.0.19, != 3.2.9, != 3.2.8, != 3.2.7, != 3.2.6, != 3.2.5, != 3.2.4, != 3.2.3, != 3.2.2, != 3.2.10, != 3.2.1, != 3.2.0, != 3.1.9, != 3.1.8, != 3.1.7, != 3.1.6, != 3.1.5, != 3.1.4, != 3.1.3, != 3.1.2, != 3.1.1, != 3.1.0)
     dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.0.2)
+    gemoji (1.1.2)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -61,6 +90,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -96,6 +128,12 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    select2-rails (3.4.3)
+      sass-rails
+      thor (~> 0.14)
+    simple_form (3.0.0)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -120,14 +158,19 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.3)
       rack (>= 1.0)
+    workflow (0.8.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan!
   coffee-rails (~> 4.0.0)
+  forem!
+  friendly_id!
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari (= 0.14.1)
   pg
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
