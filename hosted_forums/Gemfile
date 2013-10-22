@@ -7,6 +7,16 @@ gem "kaminari", "0.14.1"
 gem 'cancan', git: "https://github.com/nukturnal/cancan.git"
 gem 'friendly_id', github: "FriendlyId/friendly_id"
 
+group :test, :development do
+  gem 'rspec-rails', '2.13.2'
+  gem 'capybara', '2.1.0'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'simplecov'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
