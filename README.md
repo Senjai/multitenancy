@@ -148,4 +148,12 @@ For those that might test the app in development, a quick mention to http://matt
 
 Do you have to include require capybara/rspec in test helper to make capybara work? What about adding rspec to the generators?
 
+Also when you're talking about where to put the partial code, or where to place it is initally ambigious whether you're talking about the engine or the application.
+
+***
+
+## Page 101
+
+It is not immediately obvious that you intend this feature to be in a SEPERATE file than the one above. Sign up and sign in are very similar, might be best to state that this is a new file?
+
 ***
