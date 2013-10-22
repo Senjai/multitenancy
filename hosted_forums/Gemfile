@@ -4,8 +4,8 @@ gem 'subscribem', path: '../subscribem'
 
 gem "forem", :github => "radar/forem", :branch => "rails4"
 gem "kaminari", "0.14.1"
-gem 'friendly_id', github: "FriendlyId/friendly_id"
 gem 'cancan', git: "https://github.com/nukturnal/cancan.git"
+gem 'friendly_id', github: "FriendlyId/friendly_id"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
