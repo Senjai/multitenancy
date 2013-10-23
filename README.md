@@ -172,3 +172,8 @@ On page 105, the monkey patch doesn't make it obvious that Forem::ApplicationCon
 
 ***
 
+## Page 111
+
+Using database cleaner with before(:suite) works fine for the application, but tests in the engine were no longer passing. before(:all) worked for both the application and the engine. This gave me a bit of grief and I'm still not exactly sure what was happening. Should be able to provide more info if this works fine for you.
+
+***
