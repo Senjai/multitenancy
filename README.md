@@ -177,3 +177,28 @@ On page 105, the monkey patch doesn't make it obvious that Forem::ApplicationCon
 Using database cleaner with before(:suite) works fine for the application, but tests in the engine were no longer passing. before(:all) worked for both the application and the engine. This gave me a bit of grief and I'm still not exactly sure what was happening. Should be able to provide more info if this works fine for you.
 
 ***
+
+## Page 113 Proving a Fault
+
+So I noticed something pretty large here, the test in the book passes. This is because while we set the session_store initializer in the dummy app in subscribem, we did not do so in this application. There are two options, allow the session to transverse over the domain, or re-sign in. I prefer the latter, but this might need to be addressed from your standpoint.
+
+If you do not choose to change session_store.rb from the default, the proper test code would look like this:
+
+```ruby
+scenario "is only the forum admin for one account" do
+  visit "http://#{account_a.subdomain}.example.com"
+  fill_in "Email", with: account_a.owner.email
+  fill_in "Password", with: "password"
+  click_button "Sign In"
+
+  page.should have_content("Admin Area")
+
+  visit "http://#{account_b.subdomain}.example.com"
+  fill_in "Email", with: account_a.owner.email
+  fill_in "Password", with: "password"
+  click_button "Sign In"
+  page.should_not have_content("Admin Area")
+end
+```
+
+***
