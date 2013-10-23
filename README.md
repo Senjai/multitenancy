@@ -236,3 +236,10 @@ Commenting out the call to create will generate the proper error while making th
 This is the first thing to pop up when its in the test, though once the implimentation is complete as it stands on 133 both tests still pass.
 
 ***
+
+## Page 134
+
+Still plan select screen todo. Is this something you intend to impliment or is an exercise left for the reader?
+
+***
+
