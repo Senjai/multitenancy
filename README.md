@@ -202,3 +202,9 @@ end
 ```
 
 ***
+
+## Page 117
+
+Worth mentioning that after these overrides are complete, a migration could be created to drop these columns that have been added by forem.
+
+***
