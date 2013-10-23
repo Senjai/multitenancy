@@ -208,3 +208,9 @@ end
 Worth mentioning that after these overrides are complete, a migration could be created to drop these columns that have been added by forem.
 
 ***
+
+Interlude,
+
+A couple of other things i've noticed.. While using the subdomain as a way to scope schemas, a problem arises still when www is used before the domain name. It is considered/thought to be a subdomain and Apartment looks for it as a schema.
+
+***
