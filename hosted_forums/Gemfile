@@ -16,6 +16,7 @@ end
 group :test do
   gem 'simplecov'
   gem 'factory_girl', '4.2.0'
+  gem 'database_cleaner', '1.0.1'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
