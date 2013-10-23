@@ -20,6 +20,7 @@ s.email       = ["TODO: Your email"]
   s.add_dependency "warden", "1.2.3"
   s.add_dependency "dynamic_form", "1.1.4"
   s.add_dependency "apartment", '0.22.1'
+  s.add_dependency "braintree", "2.24.0"
 
   s.add_development_dependency "pg"
   s.add_development_dependency "rspec-rails", "2.14.0"
