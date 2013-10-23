@@ -157,3 +157,11 @@ Also when you're talking about where to put the partial code, or where to place 
 It is not immediately obvious that you intend this feature to be in a SEPERATE file than the one above. Sign up and sign in are very similar, might be best to state that this is a new file?
 
 ***
+
+## Factory sharing, page 104
+
+Wouldn't this be easier to have spec_helper.rb autoload all factories from testing_support/factories/**/*.rb? Considering that factory usage is pretty widespread? Or is this violating some sort of design rule?
+
+This could also be done in the applications spec_helper. Not an error per say, I'm just curious on your thoughts.
+
+***
