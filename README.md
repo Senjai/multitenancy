@@ -165,3 +165,10 @@ Wouldn't this be easier to have spec_helper.rb autoload all factories from testi
 This could also be done in the applications spec_helper. Not an error per say, I'm just curious on your thoughts.
 
 ***
+
+## Forem Monkey Patch, page 105
+
+On page 105, the monkey patch doesn't make it obvious that Forem::ApplicationController also inherits from ::ApplicationController and thus will have the authenticate_user! method as subscribem patched it into the applications controller and therefore forems controller. Worth a mention.
+
+***
+
