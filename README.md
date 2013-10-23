@@ -231,5 +231,8 @@ Failures:
      # ./lib/subscribem/braintree_plan_fetcher.rb:3:in `store_locally'
      # ./spec/integration/braintree_plan_fetchet_spec.rb:32:in `block (2 levels) in <top (required)>'
 ```
+Commenting out the call to create will generate the proper error while making the previous test fail.
+
+This is the first thing to pop up when its in the test, though once the implimentation is complete as it stands on 133 both tests still pass.
 
 ***
