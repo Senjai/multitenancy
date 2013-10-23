@@ -214,3 +214,22 @@ Interlude,
 A couple of other things i've noticed.. While using the subdomain as a way to scope schemas, a problem arises still when www is used before the domain name. It is considered/thought to be a subdomain and Apartment looks for it as a schema.
 
 ***
+
+## Page 132
+
+Oddly, the error I get with this exact code is:
+```
+Failures:
+
+  1) BraintreePlanFetcher checks and updates plans
+     Failure/Error: BraintreePlanFetcher.store_locally
+       (<Subscribem::Plan(id: integer, name: string, price: float, braintree_id: string, created_at: datetime, updated_at: datetime) (class)>).create({:name=>"starter", :price=>"9.95", :braintree_id=>"faux1"})
+           expected: 0 times with any arguments
+           received: 1 time with arguments: ({:name=>"starter", :price=>"9.95", :braintree_id=>"faux1"})
+     # ./lib/subscribem/braintree_plan_fetcher.rb:4:in `block in store_locally'
+     # ./lib/subscribem/braintree_plan_fetcher.rb:3:in `each'
+     # ./lib/subscribem/braintree_plan_fetcher.rb:3:in `store_locally'
+     # ./spec/integration/braintree_plan_fetchet_spec.rb:32:in `block (2 levels) in <top (required)>'
+```
+
+***
