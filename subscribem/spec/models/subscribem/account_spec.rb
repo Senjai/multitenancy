@@ -33,7 +33,7 @@ describe Subscribem::Account do
   it "creates a schema" do
     account = Subscribem::Account.create!({
       name: "First Account",
-      subdomain: "first"
+      subdomain: "first32"
     })
     account.create_schema
     failure_message = "Schema #{account.subdomain} does not exist"

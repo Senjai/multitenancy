@@ -4,9 +4,19 @@ module Subscribem
   module TestingSupport
     module DatabaseCleaning
       def self.included(config)
+
+        config.before(:all) do
+          DatabaseCleaner.strategy = :truncation, {pre_count: true, reset_ids: true}
+          DatabaseCleaner.clean_with(:truncation)
+        end
+
+        config.before(:each) do
+          DatabaseCleaner.start
+        end
+
         config.after(:each) do
-          DatabaseCleaner.clean
           Apartment::Database.reset
+          DatabaseCleaner.clean
 
           connection = ActiveRecord::Base.connection.raw_connection
           schemas = connection.query(%Q{
@@ -20,15 +30,6 @@ module Subscribem
           schemas.each do |query|
             connection.query(query.values.first)
           end
-        end
-
-        config.before(:each) do
-          DatabaseCleaner.start
-        end
-
-        config.before(:suite) do
-          DatabaseCleaner.strategy = :truncation, {pre_count: true, reset_ids: true}
-          DatabaseCleaner.clean_with(:truncation)
         end
       end
     end
