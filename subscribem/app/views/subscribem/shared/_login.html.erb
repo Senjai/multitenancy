@@ -1,5 +1,4 @@
 <% if user_signed_in? %>
-  <% binding.pry %>
   <p>Signed in as <%= current_user.email %></p>
   <% if owner? %>
     &middot;
