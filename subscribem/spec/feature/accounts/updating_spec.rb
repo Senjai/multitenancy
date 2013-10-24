@@ -63,16 +63,6 @@ feature "Accounts" do
         page.should have_content("Account updated successfully.")
         plan_url = subscribem.plan_account_url(plan_id: extreme_plan.id, subdomain: account.subdomain)
         page.current_url.should eql(plan_url)
-
-        page.should have_content("You are changing to the 'Extreme' plan")
-        page.should have_content("This plan costs $19.95 per month.")
-
-        fill_in "Credit card number", :with => "4111111111111111"
-        fill_in "Name on card", :with => "Dummy user"
-        future_date = "#{Time.now.month + 1}/#{Time.now.year + 1}"
-        fill_in "Expiration date", :with => future_date
-        fill_in "CVV", :with => "123"
-        click_button "Change plan"
       end
     end
   end
