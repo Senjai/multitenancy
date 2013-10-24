@@ -56,6 +56,16 @@ feature "Accounts" do
       end
 
       scenario "updating an accounts plan" do
+        subscription_params = {
+          payment_method_token: "abcdef",
+          plan_id: extreme_plan.braintree_id
+        }
+        Braintree::Subscription
+          .should_receive(:create)
+          .with(subscription_params)
+          .and_return(double(success: true))
+
+
         query_string = Rack::Utils.build_query(
           plan_id: extreme_plan.id,
           http_status: 200,
@@ -64,6 +74,9 @@ feature "Accounts" do
           hash: "8bb5b10a27f828afef46d033cb4ac900bc3653fd")
 
         mock_transparent_redirect_response = double(success?: true)
+        mock_transparent_redirect_response.stub_chain(:customer, :credit_cards)
+          .and_return([double(token: "abcdef")])
+
         Braintree::TransparentRedirect
           .should_receive(:confirm)
           .with(query_string)

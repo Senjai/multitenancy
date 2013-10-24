@@ -32,6 +32,9 @@ module Subscribem
 
       if result.success?
         current_account.update_column(:plan_id, params[:plan_id])
+        subscription_result = Braintree::Subscription.create(
+          payment_method_token: result.customer.credit_cards[0].token,
+          plan_id: @plan.braintree_id)
         flash[:success] = "You have switched to the '#{@plan.name}' plan."
         redirect_to root_path
       end
