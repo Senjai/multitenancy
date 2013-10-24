@@ -115,7 +115,9 @@ The first error does not occur and thus the next paragraph describing it doesn't
 Currently, (so far) the logic for creating a schema is in the controller. I agreed with create_with_user as there are situations in whcih you would want to create and account without a user and it shouldn't be placed in a callback. That said, is there ever a time you'd create an account without an associated schema?
 
 Would it be best to put that in an after_create callback on the model, or even better in a ActiveRecord::Concern?
-
+require 'subscribem/testing_support/factories/account_factory'
+3 require 'forem/testing_support/factories/categories'
+4 require 'forem/testing_support/factories/forums'
 ***
 
 ## Page 86
@@ -408,5 +410,26 @@ Originally @result wasn't an instance variable. I missed this when the test pass
 ## Page 169
 
 If you follow my reccomendation to move the sign in process into the before block for this context you should remove the `visit root_url` from this test.
+
+***
+
+## Page 174
+
+Aha! you return to line numbers :P
+
+```ruby
+let(:account) do
+8 account = FactoryGirl.create(:account_with_schema).tap(&:save)
+9 end
+```
+`account =` and the tap statement are redundant. You don't need to save when you're using create.
+
+***
+
+## Page 177
+
+Fini!
+
+One last check should be done to determine the limit for users without a plan aka on the free plan.
 
 ***
