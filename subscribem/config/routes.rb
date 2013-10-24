@@ -11,6 +11,7 @@ Subscribem::Engine.routes.draw do
       patch '/account', to: "accounts#update", as: :account
       get '/account/plan/:plan_id', to: "accounts#plan", as: :plan_account
       get '/account/subscribe', to: "accounts#subscribe", as: :subscribe_account
+      post '/account/confirm_plan', to: "accounts#confirm_plan", as: :confirm_plan_account
 
       root to: "dashboard#index", as: :account_root
     end

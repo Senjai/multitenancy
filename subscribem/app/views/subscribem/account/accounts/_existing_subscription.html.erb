@@ -1,0 +1,12 @@
+<div class="plan-info">
+  <p>
+    You are changing to the '<%= @plan.name %>' plan.
+  </p>
+  <p>
+    This plan costs <strong>$<%= @plan.price %></strong> per month.
+  </p>
+</div>
+
+<%= form_tag confirm_plan_account_path(:plan_id => params[:plan_id]) do %>
+  <%= submit_tag "Change plan" %>
+<% end %>

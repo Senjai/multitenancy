@@ -45,6 +45,18 @@ module Subscribem
       end
     end
 
+    def confirm_plan
+      @plan = Subscribem::Plan.find(params[:plan_id])
+      subscription_id = current_account.braintree_subscription_id
+      subscription_result = Braintree::Subscription.update(subscription_id,
+      :plan_id => plan.braintree_id)
+      if subscription_result.success?
+        current_account.update_column(:plan_id, plan.id)
+        flash[:success] = "You have switched to the '#{plan.name}' plan."
+        redirect_to root_path
+      end
+    end
+
     private
 
     def account_params

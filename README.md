@@ -404,3 +404,9 @@ I just noticed that your code here differs from code in previously. Some code is
 Originally @result wasn't an instance variable. I missed this when the test passed :P Worth noting the change?
 
 ***
+
+## Page 169
+
+If you follow my reccomendation to move the sign in process into the before block for this context you should remove the `visit root_url` from this test.
+
+***
