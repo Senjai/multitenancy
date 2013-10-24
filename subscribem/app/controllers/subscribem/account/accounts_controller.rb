@@ -31,10 +31,12 @@ module Subscribem
       @result = Braintree::TransparentRedirect.confirm(request.query_string)
 
       if @result.success?
-        current_account.update_column(:plan_id, params[:plan_id])
         subscription_result = Braintree::Subscription.create(
           payment_method_token: @result.customer.credit_cards[0].token,
           plan_id: @plan.braintree_id)
+        current_account.update_column(:plan_id, params[:plan_id])
+        subscription_id = subscription_result.subscription.id
+        current_account.update_column(:braintree_subscription_id, subscription_id)
         flash[:success] = "You have switched to the '#{@plan.name}' plan."
         redirect_to root_path
       else

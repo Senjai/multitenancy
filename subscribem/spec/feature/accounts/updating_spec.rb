@@ -69,10 +69,12 @@ feature "Accounts" do
           payment_method_token: "abcdef",
           plan_id: extreme_plan.braintree_id
         }
+        subscription_results = double(success?: true, subscription: double(id: "abc123"))
+
         Braintree::Subscription
           .should_receive(:create)
           .with(subscription_params)
-          .and_return(double(success: true))
+          .and_return(subscription_results)
 
         mock_transparent_redirect_response = double(success?: true)
         mock_transparent_redirect_response.stub_chain(:customer, :credit_cards)
@@ -103,6 +105,7 @@ feature "Accounts" do
 
         page.should have_content("You have switched to the 'Extreme' plan.")
         page.current_url.should == root_url + "/"
+        account.reload.braintree_subscription_id.should == "abc123"
       end
 
       scenario "can't change accounts plans with invalid credit card number" do

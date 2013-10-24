@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024100800) do
+ActiveRecord::Schema.define(version: 20131024104411) do
 
   create_table "forem_categories", force: true do |t|
     t.string   "name",       null: false
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20131024100800) do
     t.integer  "owner_id"
     t.string   "subdomain"
     t.integer  "plan_id"
+    t.string   "braintree_subscription_id"
   end
 
   add_index "subscribem_accounts", ["subdomain"], name: "index_subscribem_accounts_on_subdomain", using: :btree
