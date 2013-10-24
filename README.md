@@ -361,6 +361,12 @@ This test does not pass for me as is. I get the error below:
 
 Since the hash is generated from the data (I think) and the data doesnt change, I just copied the generated hash and it passes. Not sure if this is the best way to go about it.
 
+Additionally, I had to replace the spaces in the id field for Rack::Utils with underscores, as it seems to convert them to +'s
+
+and I had to add a '/' to the end of root_url because page.current_url had a trailing forward slash.
+
+`page.current_url.should == root_url + "/"`
+
 ***
 
 ## Page 158
