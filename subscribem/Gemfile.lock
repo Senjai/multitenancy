@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/radar/fake_braintree_redirect.git
+  revision: cc9ac56d951fb6c671d8dd90b7b723c3e9ab569b
+  specs:
+    fake_braintree_redirect (1.0.0)
+      braintree (~> 2.24.0)
+      rack
+
 PATH
   remote: .
   specs:
@@ -140,6 +148,7 @@ DEPENDENCIES
   capybara (= 2.1.0)
   database_cleaner (= 1.0.1)
   factory_girl (= 4.1.0)
+  fake_braintree_redirect!
   pg
   pry-rails
   rspec-rails (= 2.14.0)

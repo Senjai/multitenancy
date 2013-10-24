@@ -10,6 +10,7 @@ Subscribem::Engine.routes.draw do
       get '/account', to: "accounts#edit", as: :edit_account
       patch '/account', to: "accounts#update", as: :account
       get '/account/plan/:plan_id', to: "accounts#plan", as: :plan_account
+      get '/account/subscribe', to: "accounts#subscribe", as: :subscribe_account
 
       root to: "dashboard#index", as: :account_root
     end
