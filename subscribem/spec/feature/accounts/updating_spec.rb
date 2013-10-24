@@ -51,6 +51,15 @@ feature "Accounts" do
         )
       end
 
+      let(:query_string) do
+        Rack::Utils.build_query(
+          plan_id: extreme_plan.id,
+          http_status: 200,
+          id: "a_fake_id",
+          kind: "create_customer",
+          hash: "8bb5b10a27f828afef46d033cb4ac900bc3653fd")
+      end
+
       before do
         account.update_column(:plan_id, starter_plan.id)
       end
@@ -64,14 +73,6 @@ feature "Accounts" do
           .should_receive(:create)
           .with(subscription_params)
           .and_return(double(success: true))
-
-
-        query_string = Rack::Utils.build_query(
-          plan_id: extreme_plan.id,
-          http_status: 200,
-          id: "a_fake_id",
-          kind: "create_customer",
-          hash: "8bb5b10a27f828afef46d033cb4ac900bc3653fd")
 
         mock_transparent_redirect_response = double(success?: true)
         mock_transparent_redirect_response.stub_chain(:customer, :credit_cards)
@@ -102,6 +103,36 @@ feature "Accounts" do
 
         page.should have_content("You have switched to the 'Extreme' plan.")
         page.current_url.should == root_url + "/"
+      end
+
+      scenario "can't change accounts plans with invalid credit card number" do
+        message = "Credit card number must be 12-19 digits"
+        result = double(:success? => false, message: message)
+        Braintree::TransparentRedirect
+          .should_receive(:confirm)
+          .with(query_string)
+          .and_return(result)
+
+        click_link "Edit Account"
+        select 'Extreme', from: 'Plan'
+        click_button "Update Account"
+
+        page.should have_content("Account updated successfully.")
+        plan_url = subscribem.plan_account_url(plan_id: extreme_plan.id, subdomain: account.subdomain)
+        page.current_url.should eql(plan_url)
+
+        page.should have_content("You are changing to the 'Extreme' plan")
+        page.should have_content("This plan costs $19.95 per month.")
+
+        fill_in "Credit card number", :with => "1"
+        fill_in "Name on card", :with => "Dummy user"
+        future_date = "#{Time.now.month + 1}/#{Time.now.year + 1}"
+        fill_in "Expiration date", :with => future_date
+        fill_in "CVV", :with => "123"
+        click_button "Change plan"
+
+        page.should have_content("Invalid credit card details. Please try again.")
+        page.should have_content("Credit card number must be 12-19 digits")
       end
     end
   end

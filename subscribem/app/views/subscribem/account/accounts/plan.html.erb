@@ -1,3 +1,11 @@
+<% if @result && @result.message %>
+<ul class="gateway_messages">
+  <% @result.message.split("\n").each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <div class="plan-info">
   <p>
     You are changing to the '<%= @plan.name %>' plan.

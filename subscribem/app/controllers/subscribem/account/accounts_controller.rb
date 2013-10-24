@@ -28,15 +28,18 @@ module Subscribem
 
     def subscribe
       @plan = Subscribem::Plan.find(params[:plan_id])
-      result = Braintree::TransparentRedirect.confirm(request.query_string)
+      @result = Braintree::TransparentRedirect.confirm(request.query_string)
 
-      if result.success?
+      if @result.success?
         current_account.update_column(:plan_id, params[:plan_id])
         subscription_result = Braintree::Subscription.create(
-          payment_method_token: result.customer.credit_cards[0].token,
+          payment_method_token: @result.customer.credit_cards[0].token,
           plan_id: @plan.braintree_id)
         flash[:success] = "You have switched to the '#{@plan.name}' plan."
         redirect_to root_path
+      else
+        flash[:error] = "Invalid credit card details. Please try again."
+        render "plan"
       end
     end
 
