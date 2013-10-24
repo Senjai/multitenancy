@@ -5,5 +5,10 @@
     <%= account.label :name %>
     <%= account.text_field :name %>
   </p>
+  <p>
+    <%= account.label :plan_id %>
+    <% plans = Subscribem::Plan.all.map {|p| [p.name, p.id]} %>
+    <%= account.select :plan_id, plans %>
+  </p>
   <%= account.submit "Update Account" %>
 <% end %>

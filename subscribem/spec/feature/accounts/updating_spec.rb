@@ -33,6 +33,38 @@ feature "Accounts" do
       page.should have_content("Name can't be blank")
       page.should have_content("Account could not be updated.")
     end
+
+    context "with plans" do
+      let!(:starter_plan) do
+        Subscribem::Plan.create(
+          name: 'Starter',
+          price: 9.95,
+          braintree_id: 'starter'
+        )
+      end
+
+      let!(:extreme_plan) do
+        Subscribem::Plan.create(
+          name: 'Extreme',
+          price: 19.95,
+          braintree_id: 'extreme'
+        )
+      end
+
+      before do
+        account.update_column(:plan_id, starter_plan.id)
+      end
+
+      scenario "updating an accounts plan" do
+        click_link "Edit Account"
+        select 'Extreme', from: 'Plan'
+        click_button "Update Account"
+
+        page.should have_content("Account updated successfully.")
+        page.should have_content("You are now on the 'Extreme' plan.")
+        account.reload.plan.should == extreme_plan
+      end
+    end
   end
 
   context "As a user" do

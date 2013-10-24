@@ -18,6 +18,8 @@ module Subscribem
     belongs_to :owner, :class_name => "Subscribem::User"
     accepts_nested_attributes_for :owner
 
+    belongs_to :plan, class_name: "Subscribem::Plan"
+
     #Validations
 
     validates :subdomain, uniqueness: true, presence: true

@@ -310,3 +310,9 @@ This is because current_account which is used in almost every scenario determins
 This may change later in the book though, so I'm not sure.
 
 ***
+
+## Binstubs
+
+I don't use them, but I just noticed that at some point in the book you started using them, but haven't instructed the user that you would be, or how to generate them with bundler if they want to do the same.
+
+***
