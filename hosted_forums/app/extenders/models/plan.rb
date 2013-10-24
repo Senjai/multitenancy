@@ -1,0 +1,1 @@
+Subscribem::Plan::LIMITS = { "Starter" => 5 }
