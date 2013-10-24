@@ -433,3 +433,11 @@ Fini!
 One last check should be done to determine the limit for users without a plan aka on the free plan.
 
 ***
+
+## Feedback
+
+I really liked this book! And I really want to generate more feedback but I'll do it tomorrow! Because I'm so god damn tired, its 4:30 am here.
+
+Until tomorrow then, 4.5/5 for the book, I'll go into detail later :P
+
+***
