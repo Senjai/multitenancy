@@ -316,3 +316,9 @@ This may change later in the book though, so I'm not sure.
 I don't use them, but I just noticed that at some point in the book you started using them, but haven't instructed the user that you would be, or how to generate them with bundler if they want to do the same.
 
 ***
+
+## Page 150
+
+This example of using only to scope the owner before_filter, and the previous one where it was originally implimented is redundant because all actions currently require only status. Additionally, it may be subjective but I read somewhere whitelisting is better than blacklisting. E.g. the safe rather than sorry route. In that case I would use except instead of only.
+
+***
