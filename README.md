@@ -256,7 +256,7 @@ on page 138, account_path also needs to be defined. So the route that you make s
 Test fails.
 
 Issue with warden test helpers seemingly only keeping a user logged in for a single request, as you requested this is your suggested change to the test.
-
+```ruby
   context "as the account owner" do
     scenario "Updating an account" do
       visit root_url
@@ -270,10 +270,34 @@ Issue with warden test helpers seemingly only keeping a user logged in for a sin
       account.reload.name.should == "A new name"
     end
   end
-
+```
 As it seems to work fine with a regular sign in.
 
 Also, this controller should probably make use of the authenticate_user! before_filter and perhaps even another one to make sure that the user accessing the controller is in fact the owner. per sevenseacat
+
+EDIT**
+
+later because we use another scenario in this test, I moved the authentication into a before block like the original helper was in.
+
+```ruby
+context "as the account owner" do
+    before do
+      visit root_url
+      fill_in "Email", :with => account.owner.email
+      fill_in "Password", :with => "password"
+      click_button "Sign In"
+    end
+
+    scenario "Updating an account" do
+      click_link "Edit Account"
+      fill_in "Name", with: "A new name"
+      sign_in_as(user:account.owner, account: account)
+      click_button "Update Account"
+      page.should have_content("Account updated successfully.")
+      account.reload.name.should == "A new name"
+    end
+  end
+```
 
 ***
 
