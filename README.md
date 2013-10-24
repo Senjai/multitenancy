@@ -392,3 +392,9 @@ Also, to migrate the applications test database, you need the fake_braintree_red
 The credit card number you say to use is actually invalid, you need one more 1 :P
 
 ***
+
+## Page 164
+
+I just noticed that your code here differs from code in previously. Some code is formatted with line numbers, some code like this is not. I personally prefer without line numbers, but just something I've noticed.
+
+***
