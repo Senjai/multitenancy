@@ -6,17 +6,24 @@ module Subscribem
     before_filter :authorize_owner
 
     def update
-      if current_account.owner?(current_user) && current_account.update_attributes(account_params)
+      plan_id = account_params.delete(:plan_id)
+
+      if current_account.update_attributes(account_params)
         flash[:success] = "Account updated successfully."
-        if current_account.previous_changes.include?("plan_id")
-          plan = current_account.plan
-          flash[:success] += " You are now on the '#{plan.name}' plan."
+
+        if plan_id != current_account.plan_id
+          redirect_to(plan_account_url(:plan_id => plan_id))
+        else
+          redirect_to root_url
         end
-        redirect_to root_url
       else
         flash[:error] = "Account could not be updated."
         render :edit
       end
+    end
+
+    def plan
+
     end
 
     private

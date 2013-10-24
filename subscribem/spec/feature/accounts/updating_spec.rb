@@ -61,8 +61,8 @@ feature "Accounts" do
         click_button "Update Account"
 
         page.should have_content("Account updated successfully.")
-        page.should have_content("You are now on the 'Extreme' plan.")
-        account.reload.plan.should == extreme_plan
+        plan_url = subscribem.plan_account_url(plan_id: extreme_plan.id, subdomain: account.subdomain)
+        page.current_url.should eql(plan_url)
       end
     end
   end
