@@ -373,4 +373,6 @@ and I had to add a '/' to the end of root_url because page.current_url had a tra
 
 It feels like this should have a new subheading, or something to sepearte the sections from changing payment plans to setting up subscriptions.
 
+At the bottom, the reference to the test is sorta ambigious thogh it can be inferred.
+
 ***
