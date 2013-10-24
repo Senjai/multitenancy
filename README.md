@@ -338,3 +338,9 @@ I dont ever remember putting the initializer in hosted_forums. Instead I stupidl
 I would really like to develop the fake_braintree_redirect instead of just including it. You could mix it into your book if you dont do anything else with Rack::Middleware, if you do I havent gotten there yet ;)
 
 ***
+
+## Page 156
+
+`#{plan.name} should be #{@plan.name}` inside the flash message
+
+***
