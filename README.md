@@ -376,3 +376,9 @@ It feels like this should have a new subheading, or something to sepearte the se
 At the bottom, the reference to the test is sorta ambigious thogh it can be inferred.
 
 ***
+
+## Page 160
+
+Booo, just got to http://lvh.me:3000 and the rest is history. I can understand not wanting to link to an external entity in a book, but just a suggestion, it's a way to accomplish the same thing without having to change your hosts file.
+
+***
