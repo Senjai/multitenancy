@@ -332,3 +332,9 @@ Text on the link is also cut off on the pdf.
 I dont ever remember putting the initializer in hosted_forums. Instead I stupidly out it in the engines initializer... I must've been tired. On page 130 however, you didn't specify exactly where to put the initializer. It can kind of be confusing at times when you're dealing with three config/initializer directories in the book, one for the engine, the hosted_forum, and the dummy application. Expanding these paths might reduce pause and make things more clear. And prevent dummies like me from making hugely obvious nono's.
 
 ***
+
+## Page 154
+
+I would really like to develop the fake_braintree_redirect instead of just including it. You could mix it into your book if you dont do anything else with Rack::Middleware, if you do I havent gotten there yet ;)
+
+***
