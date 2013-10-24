@@ -381,4 +381,8 @@ At the bottom, the reference to the test is sorta ambigious thogh it can be infe
 
 Booo, just got to http://lvh.me:3000 and the rest is history. I can understand not wanting to link to an external entity in a book, but just a suggestion, it's a way to accomplish the same thing without having to change your hosts file.
 
+More importantly, worth mentioning a `rake railties:install:migrations` is required to bring the plan_id migration over from the engine.
+
+Also, to migrate the applications test database, you need the fake_braintree_redirect gem which isn't resolved as a dependency because it isn't in the gemspec. You have to add this manually in your applications gemfile under the test environment
+
 ***

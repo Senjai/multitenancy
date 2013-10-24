@@ -6,6 +6,14 @@ GIT
       activerecord (~> 4.0.0)
 
 GIT
+  remote: git://github.com/radar/fake_braintree_redirect.git
+  revision: cc9ac56d951fb6c671d8dd90b7b723c3e9ab569b
+  specs:
+    fake_braintree_redirect (1.0.0)
+      braintree (~> 2.24.0)
+      rack
+
+GIT
   remote: git://github.com/radar/forem.git
   revision: f34fb3d655833e28d241fbc6a761e49564d35a24
   branch: rails4
@@ -211,6 +219,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.1)
   factory_girl (= 4.2.0)
+  fake_braintree_redirect!
   forem!
   friendly_id!
   jbuilder (~> 1.2)
