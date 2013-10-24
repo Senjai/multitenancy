@@ -25,6 +25,7 @@ module Subscribem
                                        message: "is not allowed. Please choose another subdomain."
     validates_format_of :subdomain, with: /\A[\w\-]+\Z/i,
                                     message: "is not allowed. Please choose another subdomain."
+    validates :name, presence: true
 
     #Class Methods
 

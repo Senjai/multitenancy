@@ -9,6 +9,9 @@ module Subscribem
       if current_account.owner?(current_user) && current_account.update_attributes(account_params)
         flash[:success] = "Account updated successfully."
         redirect_to root_url
+      else
+        flash[:error] = "Account could not be updated."
+        render :edit
       end
     end
 
