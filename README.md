@@ -327,19 +327,7 @@ This example of using only to scope the owner before_filter, and the previous on
 
 ## Page 152
 
-I don't get this configuration error.
-
-Instead I'm greeted with
-
-```
-  1) Accounts as the account owner with plans updating an accounts plan
-     Failure/Error: click_button "Change plan"
-     Apartment::SchemaNotFound:
-       One of the following schema(s) is invalid: sandbox, "test4"
-     # ./spec/feature/accounts/updating_spec.rb:75:in `block (4 levels) in <top (required)>'
-```
-
-text on the link is also cut off on the pdf.
+Text on the link is also cut off on the pdf.
 
 I dont ever remember putting the initializer in hosted_forums. Instead I stupidly out it in the engines initializer... I must've been tired. On page 130 however, you didn't specify exactly where to put the initializer. It can kind of be confusing at times when you're dealing with three config/initializer directories in the book, one for the engine, the hosted_forum, and the dummy application. Expanding these paths might reduce pause and make things more clear. And prevent dummies like me from making hugely obvious nono's.
 
