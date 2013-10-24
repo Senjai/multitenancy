@@ -249,6 +249,8 @@ account_path should be edit_account_path as that is the route that you define in
 
 on page 138, account_path also needs to be defined. So the route that you make subsequently needs to be aliased.
 
+Note that because edit_account_path is used in the _login partial thats shared with the application it should be in fact called as subscribem.edit_account_path
+
 ***
 
 ## Page 139
@@ -320,5 +322,25 @@ I don't use them, but I just noticed that at some point in the book you started 
 ## Page 150
 
 This example of using only to scope the owner before_filter, and the previous one where it was originally implimented is redundant because all actions currently require only status. Additionally, it may be subjective but I read somewhere whitelisting is better than blacklisting. E.g. the safe rather than sorry route. In that case I would use except instead of only.
+
+***
+
+## Page 152
+
+I don't get this configuration error.
+
+Instead I'm greeted with
+
+```
+  1) Accounts as the account owner with plans updating an accounts plan
+     Failure/Error: click_button "Change plan"
+     Apartment::SchemaNotFound:
+       One of the following schema(s) is invalid: sandbox, "test4"
+     # ./spec/feature/accounts/updating_spec.rb:75:in `block (4 levels) in <top (required)>'
+```
+
+text on the link is also cut off on the pdf.
+
+I dont ever remember putting the initializer in hosted_forums. Instead I stupidly out it in the engines initializer... I must've been tired. On page 130 however, you didn't specify exactly where to put the initializer. It can kind of be confusing at times when you're dealing with three config/initializer directories in the book, one for the engine, the hosted_forum, and the dummy application. Expanding these paths might reduce pause and make things more clear. And prevent dummies like me from making hugely obvious nono's.
 
 ***
