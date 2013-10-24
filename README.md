@@ -243,3 +243,10 @@ Still plan select screen todo. Is this something you intend to impliment or is a
 
 ***
 
+## Page 136
+
+account_path should be edit_account_path as that is the route that you define in config/routes.rb
+
+on page 138, account_path also needs to be defined. So the route that you make subsequently needs to be aliased.
+
+***
