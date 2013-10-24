@@ -386,3 +386,9 @@ More importantly, worth mentioning a `rake railties:install:migrations` is requi
 Also, to migrate the applications test database, you need the fake_braintree_redirect gem which isn't resolved as a dependency because it isn't in the gemspec. You have to add this manually in your applications gemfile under the test environment
 
 ***
+
+## Page 161
+
+The credit card number you say to use is actually invalid, you need one more 1 :P
+
+***
