@@ -2,7 +2,7 @@ module Subscribem
   class Account < ActiveRecord::Base
     #Constants
 
-    EXCLUDED_SUBDOMAINS = %w(admin)
+    EXCLUDED_SUBDOMAINS = %w(admin www)
 
     #Callbacks
 
@@ -40,6 +40,10 @@ module Subscribem
 
     def create_schema
       Apartment::Database.create(subdomain)
+    end
+
+    def owner?(user)
+      owner == user
     end
   end
 end

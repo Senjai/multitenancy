@@ -1,3 +1,8 @@
 <% if user_signed_in? %>
+  <% binding.pry %>
   <p>Signed in as <%= current_user.email %></p>
+  <% if owner? %>
+    &middot;
+    <%= link_to "Edit Account", edit_account_path %>
+  <% end %>
 <% end %>
