@@ -276,3 +276,13 @@ As it seems to work fine with a regular sign in.
 Also, this controller should probably make use of the authenticate_user! before_filter and perhaps even another one to make sure that the user accessing the controller is in fact the owner. per sevenseacat
 
 ***
+
+## sign_in_as
+
+I believe that signing in with the account scope is no longer needed.
+
+This is because current_account which is used in almost every scenario determins the current account based on request.subdomain
+
+This may change later in the book though, so I'm not sure.
+
+***

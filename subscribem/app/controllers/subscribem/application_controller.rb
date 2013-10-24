@@ -5,5 +5,12 @@ module Subscribem
     #that monkey patches the applications controller.
     #
     #Only put engine specific code here..
+
+    def authorize_owner
+      unless owner?
+        flash[:error] = "You are not allowed to do that."
+        redirect_to root_path
+      end
+    end
   end
 end

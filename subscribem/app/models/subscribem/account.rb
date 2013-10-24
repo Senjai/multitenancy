@@ -43,7 +43,7 @@ module Subscribem
     end
 
     def owner?(user)
-      owner == user
+      self.owner == user
     end
   end
 end

@@ -22,4 +22,16 @@ feature "Accounts" do
       account.reload.name.should == "A new name"
     end
   end
+
+  context "As a user" do
+    before do
+      user = FactoryGirl.create(:user)
+      sign_in_as(user: user)
+    end
+
+    scenario "cannot edit an accounts information" do
+      visit subscribem.edit_account_url(subdomain: account.subdomain)
+      page.should have_content("You are not allowed to do that.")
+    end
+  end
 end
