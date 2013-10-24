@@ -344,3 +344,21 @@ I would really like to develop the fake_braintree_redirect instead of just inclu
 `#{plan.name} should be #{@plan.name}` inside the flash message
 
 ***
+
+## Page 157
+
+This test does not pass for me as is. I get the error below:
+
+```
+1) Accounts as the account owner with plans updating an accounts plan
+     Failure/Error: click_button "Change plan"
+       Braintree::TransparentRedirect received :confirm with unexpected arguments
+         expected: ("plan_id=2&http_status=200&id=a+fake+id&kind=create_customer&hash=%3Chash%3E")
+              got: ("plan_id=2&http_status=200&id=a_fake_id&kind=create_customer&hash=8bb5b10a27f828afef46d033cb4ac900bc3653fd")
+     # ./app/controllers/subscribem/account/accounts_controller.rb:31:in `subscribe'
+     # ./spec/feature/accounts/updating_spec.rb:88:in `block (4 levels) in <top (required)>'
+```
+
+Since the hash is generated from the data (I think) and the data doesnt change, I just copied the generated hash and it passes. Not sure if this is the best way to go about it.
+
+***
