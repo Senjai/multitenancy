@@ -155,6 +155,22 @@ feature "Accounts" do
         page.current_url.should == root_url + "/"
         account.reload.plan.should == extreme_plan
       end
+
+      scenario "changing plan goes wrong after initial subscription" do
+        Braintree::Subscription.
+          should_receive(:update).
+          with("abc123", {:plan_id => extreme_plan.braintree_id}).
+          and_return(double(:success? => false)) # <<
+
+        account.update_column(:braintree_subscription_id, "abc123")
+        click_link 'Edit Account'
+        select 'Extreme', :from => 'Plan'
+        click_button "Update Account"
+        page.should have_content("You are changing to the 'Extreme' plan.")
+        page.should have_content("This plan costs $19.95 per month.")
+        click_button "Change plan"
+        page.should have_content("Something went wrong. Please try again.")
+      end
     end
   end
 
